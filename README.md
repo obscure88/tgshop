@@ -140,10 +140,10 @@ async def confirm_user(message: types.Message, state: FSMContext):
     if usersf is not None:
         db.add_user(message.from_user.id)
         await bot.send_message(chat_id=admin_id, text=f"<b>✅ Приняли в канал пользователя:</b> @{message.from_user.username} [<code>{message.from_user.id}</code>]")
-        await message.answer(f'<b>✅ {message.from_user.full_name} твоя <u>заявка</u> в канал была <u>прията</u>!\n\n☁️ http://commudazrdyhbullltfdy222krfjhoqzizks5ejmocpft3ijtxq5khqd.onion \n\n⚠️ Для получения актуальной ссылки в случаи блокировки, пропиши <u>/start</u></b>', disable_web_page_preview=True, reply_markup=remove_keyboard_markup)
+        await message.answer(f'<b>✅ {message.from_user.full_name} твоя <u>заявка</u> в канал была <u>прията</u>!\n\n☁️ ******* \n\n⚠️ Для получения актуальной ссылки в случаи блокировки, пропиши <u>/start</u></b>', disable_web_page_preview=True, reply_markup=remove_keyboard_markup)
         await state.finish()
     else:
-        await message.answer(f'<b>✅ {message.from_user.full_name} твоя <u>заявка</u> в канал была <u>прията</u>!\n\n☁️ http://commudazrdyhbullltfdy222krfjhoqzizks5ejmocpft3ijtxq5khqd.onion \n\n⚠️ Для получения актуальной ссылки в случаи блокировки, пропиши <u>/start</u></b>', disable_web_page_preview=True, reply_markup=remove_keyboard_markup)
+        await message.answer(f'<b>✅ {message.from_user.full_name} твоя <u>заявка</u> в канал была <u>прията</u>!\n\n☁️ ***** \n\n⚠️ Для получения актуальной ссылки в случаи блокировки, пропиши <u>/start</u></b>', disable_web_page_preview=True, reply_markup=remove_keyboard_markup)
         await bot.send_message(chat_id=admin_id, text=f"<b>✅Приняли в канал пользователя:</b> @{message.from_user.username} [<code>{message.from_user.id}</code>]")
         await state.finish()
 
@@ -160,10 +160,10 @@ async def start(message: types.Message):
     existing_user = db.get_user(message.from_user.id)
     if existing_user is not None:
         await message.answer("💰")
-        await message.answer("<b>Привет, @{message.from_user.username}.\nhttp://commudazrdyhbullltfdy222krfjhoqzizks5ejmocpft3ijtxq5khqd.onion</b>", disable_web_page_preview=True, reply_markup=remove_keyboard_markup)
+        await message.answer("<b>Привет, @{message.from_user.username}.\n*****</b>", disable_web_page_preview=True, reply_markup=remove_keyboard_markup)
     else:
         await message.answer("💰")
-        await message.answer("<b>Привет, @{message.from_user.username}.\nhttp://commudazrdyhbullltfdy222krfjhoqzizks5ejmocpft3ijtxq5khqd.onion</b>", disable_web_page_preview=True, reply_markup=remove_keyboard_markup)
+        await message.answer("<b>Привет, @{message.from_user.username}.\n*****</b>", disable_web_page_preview=True, reply_markup=remove_keyboard_markup)
         db.add_user(message.from_user.id)
 
 @dp.message_handler(content_types="new_chat_members")
